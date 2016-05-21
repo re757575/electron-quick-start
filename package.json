@@ -4,7 +4,11 @@
   "description": "A minimal Electron application",
   "main": "main.js",
   "scripts": {
-    "start": "electron main.js"
+    "start": "electron main.js",
+    "build_all": "electron-packager ./ MyElectronApp --platform=all --arch=x64 --out ~/electron_package_output --version 1.1.1 --asar=true --overwrite --ignore=node_modules/electron-*",
+    "build_linux": "electron-packager ./ MyElectronApp --platform=linux --arch=x64 --out ~/electron_package_output --version 1.1.1 --asar=true --overwrite --ignore=node_modules/electron-*",
+    "build_win32": "electron-packager ./ MyElectronApp --platform=win32 --arch=x64 --out ~/electron_package_output --version 1.1.1 --asar=true --overwrite --ignore=node_modules/electron-*",
+    "build_mac": "electron-packager ./ MyElectronApp --platform=darwin --arch=x64 --out ~/electron_package_output --version 1.1.1 --asar=true --overwrite --ignore=node_modules/electron-*"
   },
   "repository": {
     "type": "git",
@@ -23,6 +27,7 @@
   },
   "homepage": "https://github.com/electron/electron-quick-start#readme",
   "devDependencies": {
+    "electron-packager": "^7.0.2",
     "electron-prebuilt": "^1.1.1"
   }
 }
