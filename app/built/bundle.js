@@ -51,7 +51,7 @@
 /* 1 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 
 	var _react = __webpack_require__(2);
 
@@ -61,47 +61,13 @@
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
+	var _App = __webpack_require__(159);
+
+	var _App2 = _interopRequireDefault(_App);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	var MainWindow = _react2.default.createClass({
-	  getInitialState: function getInitialState() {
-	    return {
-	      message: ''
-	    };
-	  },
-	  handleTextChange: function handleTextChange(event) {
-	    this.setState({ message: event.target.value });
-	  },
-	  render: function render() {
-	    return _react2.default.createElement(
-	      "div",
-	      null,
-	      "Hello world!!",
-	      _react2.default.createElement("hr", null),
-	      _react2.default.createElement("input", { type: "text", onChange: this.handleTextChange }),
-	      _react2.default.createElement(
-	        "p",
-	        null,
-	        _react2.default.createElement(
-	          "strong",
-	          null,
-	          "你輸入的是"
-	        )
-	      ),
-	      _react2.default.createElement(
-	        "p",
-	        null,
-	        _react2.default.createElement(
-	          "span",
-	          null,
-	          this.state.message
-	        )
-	      )
-	    );
-	  }
-	});
-
-	_reactDom2.default.render(_react2.default.createElement(MainWindow, null), document.getElementById('content'));
+	_reactDom2.default.render(_react2.default.createElement(_App2.default, null), document.getElementById('content'));
 
 /***/ },
 /* 2 */
@@ -19547,6 +19513,92 @@
 
 	module.exports = __webpack_require__(4);
 
+
+/***/ },
+/* 159 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var App = function (_Component) {
+	  _inherits(App, _Component);
+
+	  function App(props) {
+	    _classCallCheck(this, App);
+
+	    var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
+
+	    _this.state = {
+	      message: ''
+	    };
+
+	    // or 使用這行
+	    // this.handleTextChange = this.handleTextChange.bind(this);
+	    return _this;
+	  }
+
+	  _createClass(App, [{
+	    key: "handleTextChange",
+	    value: function handleTextChange(event) {
+	      this.setState({ message: event.target.value });
+	    }
+	  }, {
+	    key: "render",
+	    value: function render() {
+	      return _react2.default.createElement(
+	        "div",
+	        null,
+	        _react2.default.createElement(
+	          "h1",
+	          null,
+	          "Hello world!!"
+	        ),
+	        _react2.default.createElement("hr", null),
+	        _react2.default.createElement("input", { type: "text", onChange: this.handleTextChange.bind(this) }),
+	        _react2.default.createElement(
+	          "p",
+	          null,
+	          _react2.default.createElement(
+	            "strong",
+	            null,
+	            "你輸入的是"
+	          )
+	        ),
+	        _react2.default.createElement(
+	          "p",
+	          null,
+	          _react2.default.createElement(
+	            "span",
+	            null,
+	            this.state.message
+	          )
+	        )
+	      );
+	    }
+	  }]);
+
+	  return App;
+	}(_react.Component);
+
+	exports.default = App;
 
 /***/ }
 /******/ ]);

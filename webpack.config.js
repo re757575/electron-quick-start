@@ -3,27 +3,17 @@ var webpackTargetElectronRenderer = require('webpack-target-electron-renderer');
 
 config = {
   entry: {
-    mainWindow: ['./app/mainWindow.jsx']
+    mainWindow: ['./app/index.js']
   },
   output: {
     path: './app/built',
-    filename: '[name].js'
+    filename: 'bundle.js'
   },
   module: {
     loaders: [{
-      test: /\.jsx$/,
-      exclude: /node_modules/,
-      loader: 'babel',
-      query: {
-          presets: ['react', 'es2015'],
-      }
-    }, {
       test: /\.js$/,
       exclude: /node_modules/,
-      loader: 'babel',
-      query: {
-          presets: ['es2015'],
-      }
+      loader: 'babel'
     }]
   },
   plugins: [
