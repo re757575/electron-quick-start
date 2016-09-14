@@ -1,6 +1,6 @@
-const webpack = require('webpack');
-const webpackTargetElectronRenderer = require('webpack-target-electron-renderer');
-const path = require('path');
+import webpack from 'webpack';
+import webpackTargetElectronRenderer from 'webpack-target-electron-renderer';
+import path from 'path';
 
 const config = {
   devtool: 'eval',

@@ -4,7 +4,6 @@
   "description": "A minimal Electron application",
   "main": "main.js",
   "scripts": {
-    "start": "electron .",
     "eslint": "eslint .",
     "webpack": "webpack -r babel-register",
     "hot-server": "node -r babel-register dev-server",
