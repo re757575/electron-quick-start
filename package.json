@@ -10,7 +10,7 @@
     "build_linux": "electron-packager ./ MyElectronApp --platform=linux --arch=x64 --out ./dist --version 1.3.5 --asar=true --overwrite --ignore=node_modules/electron-* --ignore=node_modules/.bin --ignore=.git --ignore=dist --prune",
     "build_win32": "electron-packager ./ MyElectronApp --platform=win32 --arch=x64 --out ./dist --version 1.3.5 --asar=true --overwrite --ignore=node_modules/electron-* --ignore=node_modules/.bin --ignore=.git --ignore=dist --prune",
     "build_mac": "electron-packager ./ MyElectronApp --platform=darwin --arch=x64 --out ./dist --version 1.3.5 --asar=true --overwrite --ignore=node_modules/electron-* --ignore=node_modules/.bin --ignore=.git --ignore=dist --prune",
-    "test_mac": "node ./test/test_mac.js"
+    "test": "node ./test/test.js"
   },
   "repository": {
     "type": "git",

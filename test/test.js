@@ -1,9 +1,24 @@
 Application = require('spectron').Application
 var assert = require('assert')
 
-var app = new Application({
-  path: './dist/MyElectronApp-darwin-x64/MyElectronApp.app/Contents/MacOS/MyElectronApp'
-})
+var appConfig = {};
+var appName = 'MyElectronApp';
+
+switch(process.platform) {
+  case 'win32':
+    appConfig.path = `./dist/${appName}-win32-${process.arch}/${appName}.exe`;
+    break;
+  case 'darwin':
+    appConfig.path = `./dist/${appName}-darwin-${process.arch}/${appName}.app/Contents/MacOS/${appName}`;
+    break;
+  case 'linux':
+  default:
+    console.log(`not yet support platform: ${process.platform}`);
+    process.exit(1);
+    break;
+}
+
+var app = new Application(appConfig)
 
 app.start().then(function () {
   // Check if the window is visible
@@ -22,7 +37,7 @@ app.start().then(function () {
   return app.browserWindow.isFullScreen()
 }).then(function (flag) {
   // Verify the window's full sreen ?
-  assert.equal(flag, true)
+  assert.equal(flag, false)
 }).catch(function (error) {
   // Log any failures
   console.error('Test failed', error.message)
