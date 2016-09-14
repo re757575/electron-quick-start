@@ -12,7 +12,7 @@ const config = {
   output: {
     path: path.join(__dirname, 'app/build'),
     filename: 'bundle.js',
-    publicPath: '/static/'
+    publicPath: 'http://localhost:3000/static/'
   },
   module: {
     loaders: [{
@@ -23,11 +23,11 @@ const config = {
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
-    // new webpack.ExternalsPlugin('commonjs', ['fs']),
-    // new webpack.IgnorePlugin(/vertx/)
+    new webpack.ExternalsPlugin('commonjs', ['fs']),
+    new webpack.IgnorePlugin(/vertx/)
   ],
-  // target: 'electron-renderer'
 };
 
 config.target = webpackTargetElectronRenderer(config);
 module.exports = config;
+
