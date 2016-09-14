@@ -1,7 +1,7 @@
 var webpack = require('webpack');
 var webpackTargetElectronRenderer = require('webpack-target-electron-renderer');
 
-config = {
+var config = {
   entry: {
     mainWindow: ['./app/index.js']
   },
