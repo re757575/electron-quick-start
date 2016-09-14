@@ -27,6 +27,7 @@ export default class App extends Component {
         <p>
           <span>{this.state.message}</span>
         </p>
+        <input type="file" id="input"/>
       </div>
     );
   }
