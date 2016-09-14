@@ -1,5 +1,4 @@
 const Application = require('spectron').Application;
-const assert = require('assert');
 const chai = require('chai');
 const chaiAsPromised = require('chai-as-promised');
 const appName = 'MyElectronApp';
@@ -18,7 +17,7 @@ switch(process.platform) {
     break;
   case 'linux':
   default:
-    console.log(`not yet support platform: ${process.platform}`);
+    process.stdout.write(`not yet support platform: ${process.platform}\n`);
     process.exit(1);
     break;
 }
@@ -29,23 +28,23 @@ describe('application launch', () => {
   beforeEach(() => {
     app = new Application(appConfig);
     return app.start();
-  })
+  });
 
   beforeEach(() => {
     chaiAsPromised.transferPromiseness = app.transferPromiseness;
-  })
+  });
 
   afterEach(() => {
     if (app && app.isRunning()) {
       return app.stop();
     }
-  })
+  });
 
   it('check browserWindow', () => {
     return app.client.waitUntilWindowLoaded()
       .browserWindow.isVisible().should.eventually.be.true
       .browserWindow.getTitle().should.eventually.equal('My Electron-React App with ES6')
       .browserWindow.isFullScreen().should.eventually.be.false;
-  })
+  });
 
-})
+});

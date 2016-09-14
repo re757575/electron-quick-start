@@ -19518,7 +19518,7 @@
 /* 159 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
@@ -19556,37 +19556,37 @@
 	  }
 
 	  _createClass(App, [{
-	    key: "handleTextChange",
+	    key: 'handleTextChange',
 	    value: function handleTextChange(event) {
 	      this.setState({ message: event.target.value });
 	    }
 	  }, {
-	    key: "render",
+	    key: 'render',
 	    value: function render() {
 	      return _react2.default.createElement(
-	        "div",
+	        'div',
 	        null,
 	        _react2.default.createElement(
-	          "h1",
+	          'h1',
 	          null,
-	          "Hello world!!"
+	          'Hello world!!'
 	        ),
-	        _react2.default.createElement("hr", null),
-	        _react2.default.createElement("input", { type: "text", onChange: this.handleTextChange.bind(this) }),
+	        _react2.default.createElement('hr', null),
+	        _react2.default.createElement('input', { type: 'text', onChange: this.handleTextChange.bind(this) }),
 	        _react2.default.createElement(
-	          "p",
+	          'p',
 	          null,
 	          _react2.default.createElement(
-	            "strong",
+	            'strong',
 	            null,
-	            "你輸入的是"
+	            '你輸入的是'
 	          )
 	        ),
 	        _react2.default.createElement(
-	          "p",
+	          'p',
 	          null,
 	          _react2.default.createElement(
-	            "span",
+	            'span',
 	            null,
 	            this.state.message
 	          )

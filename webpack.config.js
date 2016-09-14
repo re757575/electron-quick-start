@@ -1,7 +1,7 @@
-var webpack = require('webpack');
-var webpackTargetElectronRenderer = require('webpack-target-electron-renderer');
+const webpack = require('webpack');
+const webpackTargetElectronRenderer = require('webpack-target-electron-renderer');
 
-var config = {
+const config = {
   entry: {
     mainWindow: ['./app/index.js']
   },
@@ -20,7 +20,7 @@ var config = {
     new webpack.ExternalsPlugin('commonjs', ['fs']),
     new webpack.IgnorePlugin(/vertx/)
   ]
-}
+};
 
 config.target = webpackTargetElectronRenderer(config);
 module.exports = config;
