@@ -1,8 +1,13 @@
-Application = require('spectron').Application
-var assert = require('assert')
+const Application = require('spectron').Application;
+const assert = require('assert');
+const chai = require('chai');
+const chaiAsPromised = require('chai-as-promised');
+const appName = 'MyElectronApp';
 
-var appConfig = {};
-var appName = 'MyElectronApp';
+chai.should();
+chai.use(chaiAsPromised);
+
+let appConfig = {};
 
 switch(process.platform) {
   case 'win32':
@@ -18,30 +23,29 @@ switch(process.platform) {
     break;
 }
 
-var app = new Application(appConfig)
+describe('application launch', () => {
+  let app;
 
-app.start().then(function () {
-  // Check if the window is visible
-  return app.browserWindow.isVisible()
-}).then(function (isVisible) {
-  // Verify the window is visible
-  assert.equal(isVisible, true)
-}).then(function () {
-  // Get the window's title
-  return app.browserWindow.getTitle() // not app.client.getTitle()
-}).then(function (title) {
-  // Verify the window's title
-  assert.equal(title, 'My Electron-React App with ES6')
-}).then(function () {
-  // Get the window's full screen
-  return app.browserWindow.isFullScreen()
-}).then(function (flag) {
-  // Verify the window's full sreen ?
-  assert.equal(flag, false)
-}).catch(function (error) {
-  // Log any failures
-  console.error('Test failed', error.message)
-}).then(function () {
-  // Stop the application
-  return app.stop()
+  beforeEach(() => {
+    app = new Application(appConfig);
+    return app.start();
+  })
+
+  beforeEach(() => {
+    chaiAsPromised.transferPromiseness = app.transferPromiseness;
+  })
+
+  afterEach(() => {
+    if (app && app.isRunning()) {
+      return app.stop();
+    }
+  })
+
+  it('check browserWindow', () => {
+    return app.client.waitUntilWindowLoaded()
+      .browserWindow.isVisible().should.eventually.be.true
+      .browserWindow.getTitle().should.eventually.equal('My Electron-React App with ES6')
+      .browserWindow.isFullScreen().should.eventually.be.false;
+  })
+
 })
