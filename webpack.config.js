@@ -6,7 +6,7 @@ const config = {
     mainWindow: ['./app/index.js']
   },
   output: {
-    path: './app/built',
+    path: './app/build',
     filename: 'bundle.js'
   },
   module: {
