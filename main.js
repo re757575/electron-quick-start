@@ -1,4 +1,7 @@
-import { app, BrowserWindow } from 'electron';
+const {
+  app, // Module to control application life.
+  BrowserWindow // Module to create native browser window.
+} = require('electron');
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
