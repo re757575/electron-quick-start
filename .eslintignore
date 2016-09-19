@@ -1,4 +1,4 @@
-app/built
+app/build
 dist
 node_modules
 bower_components

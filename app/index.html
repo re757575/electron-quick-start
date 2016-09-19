@@ -7,5 +7,14 @@
     <div id="content">
     </div>
   </body>
-  <script src="http://localhost:3000/static/bundle.js"></script>
+  <script>
+    console.log('env: '+ process.env.NODE_ENV);
+	var script = document.createElement('script');
+	if (process.env.NODE_ENV && process.env.NODE_ENV !== 'production') {
+      script.src = 'http://localhost:3000/static/bundle.js';
+	} else {
+	  script.src = './build/bundle.js';
+	}
+	document.head.appendChild(script);
+  </script>
 </html>
